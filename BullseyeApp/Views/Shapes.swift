@@ -8,19 +8,40 @@
 import SwiftUI
 
 struct Shapes: View {
+	@State private var wideShapes = true
 	var body: some View {
-			VStack {
+		VStack {
+			if !wideShapes {
+				
 				Circle()
 					.stroke(Color.white, lineWidth: 20.0)
-//					.fill(Color.red)
+				//					.fill(Color.red)
 					.frame(width: 200, height: 100)
-				RoundedRectangle(cornerRadius: 21)
-					.frame(width: 200, height: 100)
-				Capsule()
-					.frame(width: 200, height: 100)
-				
+//					.transition(.scale)
+					.transition(.slide)
 			}
-			.background(Color.green)
+			RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
+				.frame(width: wideShapes ? 200 : 100, height: 100)
+			//				.animation(.easeInOut)
+			Capsule()
+				.fill(Color.yellow)
+				.frame(width: wideShapes ? 200 : 100, height: 100)
+			Ellipse()
+				.fill(Color.red)
+				.frame(width: wideShapes ? 200 : 100, height: 100)
+			
+			Button {
+				withAnimation{
+					
+					wideShapes.toggle()
+				}
+			} label: {
+				Text("Animate")
+			}
+			
+			
+		}
+		.background(Color.green)
 	}
 }
 

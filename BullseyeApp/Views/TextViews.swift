@@ -56,11 +56,44 @@ struct LabelText: View {
 	}
 }
 
+struct BodyText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			.font(.subheadline)
+			.bold()
+			.kerning(2)
+			.fontWeight(.semibold)
+			.multilineTextAlignment(.center)
+			.lineSpacing(12)
+	}
+}
+
+struct ButtonText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			.bold()
+			.padding()
+			.foregroundColor(Color.white)
+			.frame(maxWidth: .infinity)
+			.background(
+				Color.accentColor
+			)
+			.cornerRadius(12)
+	}
+}
+
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
-		InstructionText(text: "Instruction Text")
-		BigNumberText(text: "Big Number Text")
-		SliderLabelText(text: "Slider Label Text")
-		LabelText(text: "Label Text")
+		VStack {
+			InstructionText(text: "Instruction Text")
+			BigNumberText(text: "Big Number Text")
+			SliderLabelText(text: "Slider Label Text")
+			LabelText(text: "Label Text")
+			BodyText(text: "Body text 🎉")
+			ButtonText(text: "Button text")
+		}
+		.padding()
 	}
 }

@@ -18,13 +18,25 @@ struct ContentView: View {
 	var body: some View {
 		ZStack {
 			//			Color(red: 243.0 / 255.0, green: 248.0 / 255.0, blue: 253.0 / 255.0)
-//			Color("BackgroundColor")
-//				.edgesIgnoringSafeArea(.all)
+			//			Color("BackgroundColor")
+			//				.edgesIgnoringSafeArea(.all)
 			BackgroundView(game: $game)
 			VStack {
-				InstructionView(game: $game)
+				InstructionView(game: $game, alertIsVisible: $alertIsVisible)
+					.padding(.bottom, alertIsVisible ? 0 : 100)
+				if alertIsVisible {
+					PointsView(game: $game, alertIsVisible: $alertIsVisible, sliderValue: $sliderValue)
+						.transition(.scale)
+				} else {
+					
+					HitmeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+						.transition(.scale)
+				}
+			}
+			if !alertIsVisible {
+				
 				SliderVIew(sliderValue: $sliderValue)
-				HitmeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+					.transition(.scale)
 			}
 		}
 	}
@@ -33,12 +45,14 @@ struct ContentView: View {
 
 struct InstructionView: View {
 	@Binding var game: Game
+	@Binding var alertIsVisible: Bool
 	var body: some View {
 		VStack{
 			InstructionText(text: "🎯🎯🎯\nPut the BullSEye as close as you can to")
 				.padding(.leading, 30)
 				.padding(.trailing, 30)
 			BigNumberText(text: String(game.target))
+				.padding(.bottom, alertIsVisible ? 0 : 50)
 		}
 	}
 }
@@ -62,7 +76,9 @@ struct HitmeButton: View {
 	
 	var body: some View {
 		Button {
-			alertIsVisible = true
+			withAnimation{
+				alertIsVisible = true
+			}
 		} label: {
 			Text("Hit Me".uppercased())
 				.bold()
@@ -82,17 +98,22 @@ struct HitmeButton: View {
 			}
 		)
 		.foregroundColor(Color.white)
-		.cornerRadius(21.0)
+		.cornerRadius(Constants.General.roundedRectCornerRadius)
 		.overlay(
-			RoundedRectangle(cornerRadius: 21)
-				.strokeBorder(Color.white, lineWidth: 1.0)
+			RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
+				.strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
 		)
-		.alert("Congratulations", isPresented: $alertIsVisible) {
-			Button("Awesome!") { }
-		} message: {
-			let roundedValue = Int(sliderValue.rounded())
-			Text("You Selected \(roundedValue)\n You scored \(game.points(sliderValue: roundedValue)) points")
-		}
+		//		.alert("Congratulations", isPresented: $alertIsVisible) {
+		//			let roundedValue = Int(sliderValue.rounded())
+		//			let points = game.points(sliderValue: roundedValue)
+		//			Button("Awesome!") {
+		//				game.startNewRound(points: points)
+		//			}
+		//		} message: {
+		//			let roundedValue = Int(sliderValue.rounded())
+		//			let points = game.points(sliderValue: roundedValue)
+		//			Text("You Selected \(roundedValue)\n You scored \(points) points")
+		//		}
 	}
 }
 
