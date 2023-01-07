@@ -19,6 +19,7 @@
 		04D87D5129664AC30038D5B3 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D87D5029664AC30038D5B3 /* Shapes.swift */; };
 		04D87D5329664E5B0038D5B3 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D87D5229664E5B0038D5B3 /* RoundedViews.swift */; };
 		04D87D55296655030038D5B3 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D87D54296655030038D5B3 /* BackgroundView.swift */; };
+		04F091AE2968F53000F6430A /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F091AD2968F53000F6430A /* LeaderBoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		04D87D5029664AC30038D5B3 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		04D87D5229664E5B0038D5B3 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		04D87D54296655030038D5B3 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		04F091AD2968F53000F6430A /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				04D87D54296655030038D5B3 /* BackgroundView.swift */,
 				0465ED3229679FA400EEA770 /* PointsView.swift */,
 				0465ED342967ABA700EEA770 /* Constants.swift */,
+				04F091AD2968F53000F6430A /* LeaderBoardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				04D87D2F29650B510038D5B3 /* ContentView.swift in Sources */,
 				04D87D4F296644F50038D5B3 /* TextViews.swift in Sources */,
 				0465ED3329679FA400EEA770 /* PointsView.swift in Sources */,
+				04F091AE2968F53000F6430A /* LeaderBoardView.swift in Sources */,
 				04D87D55296655030038D5B3 /* BackgroundView.swift in Sources */,
 				04D87D5129664AC30038D5B3 /* Shapes.swift in Sources */,
 				0465ED352967ABA700EEA770 /* Constants.swift in Sources */,

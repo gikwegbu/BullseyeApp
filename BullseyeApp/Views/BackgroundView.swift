@@ -26,6 +26,7 @@ struct BackgroundView: View {
 struct TopView: View {
 	@State private var isRestart: Bool = false
 	@Binding var game: Game
+	@State private var leaderboardIsShowing = false
 	var body: some View {
 		HStack {
 			Button {
@@ -49,9 +50,16 @@ struct TopView: View {
 			}
 			Spacer()
 			Button {
+				leaderboardIsShowing.toggle()
 			} label: {
 				RoundedImageViewFilled(systemName: "list.dash")
 			}
+			.sheet(isPresented: $leaderboardIsShowing) {
+				//
+			} content: {
+				LeaderBoardView(leaderboardIsShowing: $leaderboardIsShowing)
+			}
+
 		}
 	}
 }
@@ -60,8 +68,6 @@ struct NumberView: View {
 	var title: String
 	var text: String
 	var body: some View {
-		//		Color.gray
-		//			.frame(width: 56, height: 56)
 		
 		VStack(spacing: 5) {
 			LabelText(text: title)
@@ -107,5 +113,7 @@ struct RingsView: View {
 struct BackgroundView_Previews: PreviewProvider {
 	static var previews: some View {
 		BackgroundView(game: .constant(Game()))
+		BackgroundView(game: .constant(Game()))
+			.preferredColorScheme(.dark)
 	}
 }
