@@ -57,9 +57,9 @@ struct TopView: View {
 			.sheet(isPresented: $leaderboardIsShowing) {
 				//
 			} content: {
-				LeaderBoardView(leaderboardIsShowing: $leaderboardIsShowing)
+				LeaderBoardView(leaderboardIsShowing: $leaderboardIsShowing, game: $game)
 			}
-
+			
 		}
 	}
 }

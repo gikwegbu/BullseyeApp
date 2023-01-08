@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		0465ED3229679FA400EEA770 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		0465ED342967ABA700EEA770 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		04D87D2929650B510038D5B3 /* BullseyeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullseyeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D87D2929650B510038D5B3 /* Tarr-get.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tarr-get.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D87D2C29650B510038D5B3 /* BullseyeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeAppApp.swift; sourceTree = "<group>"; };
 		04D87D2E29650B510038D5B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		04D87D3029650B530038D5B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		04D87D2A29650B510038D5B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04D87D2929650B510038D5B3 /* BullseyeApp.app */,
+				04D87D2929650B510038D5B3 /* Tarr-get.app */,
 				04D87D4329652BE60038D5B3 /* BullseyeAppTests.xctest */,
 			);
 			name = Products;
@@ -108,8 +108,7 @@
 		04D87D3A296527A90038D5B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				04D87D2C29650B510038D5B3 /* BullseyeAppApp.swift */,
-				04D87D3029650B530038D5B3 /* Assets.xcassets */,
+				0465ED342967ABA700EEA770 /* Constants.swift */,
 				04D87D3D2965285A0038D5B3 /* Game.swift */,
 			);
 			path = Models;
@@ -124,7 +123,6 @@
 				04D87D5229664E5B0038D5B3 /* RoundedViews.swift */,
 				04D87D54296655030038D5B3 /* BackgroundView.swift */,
 				0465ED3229679FA400EEA770 /* PointsView.swift */,
-				0465ED342967ABA700EEA770 /* Constants.swift */,
 				04F091AD2968F53000F6430A /* LeaderBoardView.swift */,
 			);
 			path = Views;
@@ -133,6 +131,8 @@
 		04D87D3C296527B90038D5B3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				04D87D3029650B530038D5B3 /* Assets.xcassets */,
+				04D87D2C29650B510038D5B3 /* BullseyeAppApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			);
 			name = BullseyeApp;
 			productName = BullseyeApp;
-			productReference = 04D87D2929650B510038D5B3 /* BullseyeApp.app */;
+			productReference = 04D87D2929650B510038D5B3 /* Tarr-get.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04D87D4229652BE60038D5B3 /* BullseyeAppTests */ = {
@@ -396,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BullseyeApp/Preview Content\"";
@@ -413,7 +414,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.netlify.gikwegbu.BullseyeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tarr-get";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -425,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BullseyeApp/Preview Content\"";
@@ -442,7 +444,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.netlify.gikwegbu.BullseyeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tarr-get";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

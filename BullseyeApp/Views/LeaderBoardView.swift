@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LeaderBoardView: View {
 	@Binding var leaderboardIsShowing: Bool
+	@Binding var game: Game
 	var body: some View {
 		ZStack {
 			Color("BackgroundColor")
@@ -16,7 +17,14 @@ struct LeaderBoardView: View {
 			VStack(spacing: 10) {
 				HeadView(leaderboardIsShowing: $leaderboardIsShowing)
 				LabelView()
-				RowView(index: 1, score: 10, date: Date())
+				ScrollView {
+					VStack(spacing: 10) {
+						ForEach(game.leaderboardEntries.indices) { i in
+							let leaderboardEntries = game.leaderboardEntries[i]
+							RowView(index: i, score: leaderboardEntries.score, date: leaderboardEntries.date)
+						}
+					}
+				}
 			}
 		}
 	}
@@ -63,6 +71,7 @@ struct HeadView: View {
 					BigBoldText(text: "Leaderboard")
 				}
 			}
+			.padding(.top)
 			HStack{
 				Spacer()
 				Button {
@@ -97,9 +106,10 @@ struct LabelView: View {
 
 struct LeaderBoardView_Previews: PreviewProvider {
 	static private var leaderboardIsShowing = Binding.constant(false)
+	static private var game = Binding.constant(Game())
 	static var previews: some View {
-		LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
-		LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
+		LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
+		LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
 			.preferredColorScheme(.dark)
 	}
 }

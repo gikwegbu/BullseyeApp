@@ -7,10 +7,16 @@
 
 import Foundation
 
+struct LeaderboardEntry {
+	let score: Int
+	let date: Date
+}
+
 struct Game {
 	var target: Int = Int.random(in: 1...100)
 	var score  = 0
 	var round  = 1
+	var leaderboardEntries: [LeaderboardEntry] = []
 	
 	func points(sliderValue: Int) -> Int {
 		let diff = abs(target - sliderValue)
@@ -30,11 +36,18 @@ struct Game {
 		score += points
 		round += 1
 		target = Int.random(in: 1...100)
+		addToLeaderboard(points: points)
 	}
 	
 	mutating func restart() {
 		score = 0
 		round = 1
 		target = Int.random(in: 1...100)
+	}
+	
+	mutating func addToLeaderboard(points: Int) {
+		// Adding entries
+		leaderboardEntries.append(LeaderboardEntry(score: points, date: Date()))
+		leaderboardEntries.sort {$0.score > $1.score}
 	}
 }
